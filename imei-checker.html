@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IMEI Checker</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <form id="imeiForm">
+      API Key: <input type="text" id="apiKey" /> Imei:
+      <input type="text" id="imei" />
+      <button type="button" onclick="checkImei()">Check!</button>
+    </form>
+
+    <script>
+      function checkImei() {
+        const apiKey = $("#apiKey").val();
+        const imeiValue = $("#imei").val();
+
+        const settings = {
+          async: true,
+          crossDomain: true,
+          url: `https://api-client.imei.org/api/services?apikey=${apiKey}`,
+          method: "GET",
+        };
+
+        // Make the AJAX request
+        $.ajax(settings)
+          .done(function (response) {
+            console.log(response); // Log the API response to the console
+          })
+          .fail(function (jqXHR, textStatus, errorThrown) {
+            console.error("Error:", textStatus, errorThrown);
+          });
+      }
+    </script>
+  </body>
+</html>
