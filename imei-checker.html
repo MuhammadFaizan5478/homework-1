@@ -14,13 +14,13 @@
 
     <script>
       function checkImei() {
-        const apiKey = document.getElementById('apiKey').value;
-        const imeiValue =document.getElementById('imei').value;
+        const $apiKey = document.getElementById('apiKey').value;
+        const $imeiValue =document.getElementById('imei').value;
 
         const settings = {
           async: true,
           crossDomain: true,
-          url: `https://api-client.imei.org/api/services?apikey=${apiKey}&imei=${imeiValue}`,
+          url: `https://api-client.imei.org/api/services?apikey=$apiKey&imei=$imeiValue`,
           method: "GET",
         };
 
